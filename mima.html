@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mima 🤍</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(180deg,#eef6ff,#ffffff);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.phone{
+  width:360px;
+  max-width:95%;
+  background:#fff;
+  border-radius:26px;
+  padding:22px;
+  box-shadow:0 20px 40px rgba(0,0,0,.18);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  animation:fade .8s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(12px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+h1{
+  text-align:center;
+  color:#3182ce;
+  margin-bottom:12px;
+}
+
+#text{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:14.5px;
+  line-height:1.7;
+  color:#2a4365;
+  padding:8px;
+  transition:opacity .4s ease;
+}
+
+img{
+  width:100%;
+  border-radius:18px;
+  margin-top:14px;
+  display:none;
+  box-shadow:0 12px 25px rgba(0,0,0,.2);
+}
+
+.photo-text{
+  text-align:center;
+  font-size:13px;
+  color:#4a6fa5;
+  margin-top:6px;
+  display:none;
+}
+
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  font-size:15px;
+  margin-top:10px;
+  cursor:pointer;
+}
+
+#next{
+  background:#3182ce;
+  color:#fff;
+}
+
+#dm{
+  display:none;
+  background:linear-gradient(45deg,#2b6cb0,#63b3ed);
+  color:white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎧 MUSIK CUTE & TENANG -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3">
+</audio>
+
+<div class="phone">
+  <div>
+    <h1>🤍 For Mima 🤍</h1>
+    <div id="text"></div>
+
+    <!-- FOTO DI AKHIR -->
+    <img id="photo" src="https://i.pinimg.com/736x/13/ba/38/13ba38ba59c47d4395d5a283b86e3744.jpg" alt="foto kenangan">
+    <div id="photoText" class="photo-text">
+      soft bully tapi sayang 🤍
+    </div>
+  </div>
+
+  <div>
+    <button id="next">Lanjut ➜</button>
+    <button id="dm" onclick="goDM()">Balas aku 🤍</button>
+  </div>
+</div>
+
+<script>
+const texts=[
+  "Hai Mima 🤍",
+  "Aku bikin ini sambil mikir…",
+  "kamu tuh temen yang unik.",
+  "Unik karena cara kamu ngebully itu halus banget 😭",
+  "Saking halusnya, kadang aku baru ngeh belakangan.",
+  "Kayak… \"eh, itu aku dibully ya?\"",
+  "Tapi anehnya, aku nggak kesel.",
+  "Malah ketawa.",
+  "Karena caramu tuh soft.",
+  "Soft tapi kena.",
+  "Dan entah kenapa itu bikin aku nyaman.",
+  "Aku suka berteman sama kamu.",
+  "Suka ngobrol sama kamu.",
+  "Suka energy kamu.",
+  "Thanks ya, udah jadi temen yang fun.",
+  "Yang kadang ngeledek, tapi nggak pernah jahat.",
+  "Jujur aja…",
+  "I loveee being your friend 🤍"
+];
+
+let i=0;
+const textEl=document.getElementById("text");
+const nextBtn=document.getElementById("next");
+const photo=document.getElementById("photo");
+const photoText=document.getElementById("photoText");
+const dmBtn=document.getElementById("dm");
+
+textEl.innerHTML=texts[0];
+
+nextBtn.onclick=()=>{
+  i++;
+  textEl.style.opacity=0;
+
+  setTimeout(()=>{
+    if(i<texts.length){
+      textEl.innerHTML=texts[i];
+      textEl.style.opacity=1;
+    }else{
+      nextBtn.style.display="none";
+      photo.style.display="block";
+      photoText.style.display="block";
+      dmBtn.style.display="block";
+      textEl.innerHTML="Kalau kamu baca ini sambil senyum,<br>berarti pesanku nyampe 🤍";
+      textEl.style.opacity=1;
+    }
+  },300);
+};
+
+function goDM(){
+  const msg=encodeURIComponent(
+    "aku udah baca semuanya 🤍\n" +
+    "iya kamu soft bully 😭 tapi lucu.\n\n" +
+    "loveee kamu juga 🤍"
+  );
+
+  window.open(
+    "https://www.instagram.com/direct/new/?username=drugstprn&text="+msg,
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>
